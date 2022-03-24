@@ -4,6 +4,7 @@ mvnw
 mvnw.cmd
 *.xml
 HELP.md
+src/test
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
