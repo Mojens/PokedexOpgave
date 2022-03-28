@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex</title>
+    <link src="src/main/resources/static/Style.css" th:href="@{Style.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>Pokedex</h1>
+<table class="PokeTable">
+    <thead>
+    <tr>
+        <th>
+            Pokedex Number
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Primary type
+        </th>
+        <th>
+            Secondary type
+        </th>
+        <th>
+            slet?
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pokemon : ${pokemons}">
+        <td th:text="${pokemon.pokedex_number}">
+
+        </td>
+        <td th:text="${pokemon.name}">
+        </td>
+        <td th:text="${pokemon.primary_type}">
+
+        </td>
+        <td th:text="${pokemon.secondary_type}">
+
+        </td>
+        <td>
+            <button><a th:href="@{'/delete/' + ${pokemon.pokedex_number}}"> Slet </a></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

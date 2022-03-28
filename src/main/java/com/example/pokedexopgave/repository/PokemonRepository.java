@@ -10,7 +10,6 @@ public class PokemonRepository {
   private static String DB_URL = "jdbc:mysql://localhost:3306/Pokedex"; //efter3306 skriver hvad det er for en tabel
   private static String UID = "root";
   private static String PWD = "";
-  private static Connection connection;
 
   public static Connection getConnection(){
     Connection connection = null;
@@ -79,4 +78,29 @@ public class PokemonRepository {
     return pokedex;
   }
 
+  public void addPokemon(Pokemon pokemon){
+  getConnection();
+  try{
+    //prep statement
+    PreparedStatement preparedStatement = getConnection().prepareStatement(
+        "INSERT INTO pokemon(name, speed, special_defence, special_attack, defence, attack, hp, primary_type, secondary_type) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    //set attributer
+    preparedStatement.setString(1, pokemon.getName());
+    preparedStatement.setInt(2,pokemon.getSpeed());
+    preparedStatement.setInt(3,pokemon.getSpecial_defence());
+    preparedStatement.setInt(4,pokemon.getSpecial_attack());
+    preparedStatement.setInt(5,pokemon.getDefence());
+    preparedStatement.setInt(6,pokemon.getAttack());
+    preparedStatement.setInt(7,pokemon.getHp());
+    preparedStatement.setString(8,pokemon.getPrimary_type());
+    preparedStatement.setString(9,pokemon.getSecondary_type());
+    //execute statement
+    preparedStatement.executeUpdate();
+  }
+  catch(SQLException e){
+    System.out.println("Could not create");
+    e.printStackTrace();
+  }
+  }
 }
