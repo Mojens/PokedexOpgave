@@ -65,3 +65,10 @@ span.psw {
     font-size: 36px;
     font-family: sans-serif;
 }
+.createKnap{
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    justify-content: center;
+    display: flex;
+}
