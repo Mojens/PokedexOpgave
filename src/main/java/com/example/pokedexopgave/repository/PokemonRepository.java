@@ -103,4 +103,21 @@ public class PokemonRepository {
     e.printStackTrace();
   }
   }
+
+  public void deletePokemon(int pokedex_number){
+    getConnection();
+    try{
+      PreparedStatement preparedStatement = getConnection().prepareStatement(
+          "DELETE FROM pokemon WHERE id = ?");
+
+      preparedStatement.setInt(1, pokedex_number);
+
+      preparedStatement.executeUpdate();
+
+    } catch(SQLException e){
+      System.out.println("Could not create");
+      e.printStackTrace();
+    }
+
+  }
 }

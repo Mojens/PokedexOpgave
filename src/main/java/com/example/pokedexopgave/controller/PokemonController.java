@@ -54,4 +54,17 @@ public class PokemonController {
     pokemonRepository.addPokemon(newPokemon);
     return "redirect:/findall";
   }
+
+  @GetMapping("/deletePokemon")
+  public String showDeletePokemon(){
+    return "deletePokemon";
+  }
+
+  @PostMapping("/deletePokemon")
+  public String deletePokemon(@RequestParam("pokedex_number") int pokedex_number){
+    PokemonRepository pokemonRepository = new PokemonRepository();
+    pokemonRepository.deletePokemon(pokedex_number);
+
+    return "redirect:/findall";
+  }
 }
