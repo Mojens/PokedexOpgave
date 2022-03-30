@@ -7,11 +7,15 @@ import java.util.*;
 
 @Repository
 public class PokemonRepository {
-  private static String DB_URL = "jdbc:mysql://localhost:3306/Pokedex"; //efter3306 skriver hvad det er for en tabel
-  private static String UID = "root";
-  private static String PWD = "";
+  private static String DB_URL;
+  private static String UID;
+  private static String PWD;
 
   public static Connection getConnection(){
+    UID = System.getenv("user");
+    PWD = System.getenv("password");
+    DB_URL = System.getenv("url");
+
     Connection connection = null;
     try{
       connection = DriverManager.getConnection(DB_URL, UID, PWD);
