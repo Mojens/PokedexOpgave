@@ -6,6 +6,7 @@ HELP.md
 src/test
 target/
 *.xml
+pom.xml
 application.properties
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
