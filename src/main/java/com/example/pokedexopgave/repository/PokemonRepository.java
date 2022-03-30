@@ -120,4 +120,30 @@ public class PokemonRepository {
     }
 
   }
+
+  public void updatePokemon(Pokemon pokemon){
+    Scanner input = new Scanner(System.in);
+    final String UPDATE_QUERY = "UPDATE product SET name = ?, speed = ?, special_defence = ?, special_attack = ?, defence = ?, attack = ?, hp = ?, primary_type = ?, secondary_type = ? WHERE id = ?";
+    getConnection();
+
+    try{
+      PreparedStatement preparedStatementUpdateRow = getConnection().prepareStatement(UPDATE_QUERY);
+      preparedStatementUpdateRow.setInt(1,pokemon.getPokedex_number());
+      preparedStatementUpdateRow.setString(2, pokemon.getName());
+      preparedStatementUpdateRow.setInt(3,pokemon.getSpeed());
+      preparedStatementUpdateRow.setInt(4,pokemon.getSpecial_defence());
+      preparedStatementUpdateRow.setInt(5,pokemon.getSpecial_attack());
+      preparedStatementUpdateRow.setInt(6,pokemon.getDefence());
+      preparedStatementUpdateRow.setInt(7,pokemon.getAttack());
+      preparedStatementUpdateRow.setInt(8,pokemon.getHp());
+      preparedStatementUpdateRow.setString(9,pokemon.getPrimary_type());
+      preparedStatementUpdateRow.setString(10,pokemon.getSecondary_type());
+      preparedStatementUpdateRow.executeUpdate();
+
+    }catch (SQLException e){
+      System.out.println(e);
+    }
+
+  }
+
 }

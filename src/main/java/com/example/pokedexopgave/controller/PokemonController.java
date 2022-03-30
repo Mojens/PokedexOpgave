@@ -67,4 +67,37 @@ public class PokemonController {
 
     return "redirect:/findall";
   }
+
+  @GetMapping("/updatePokemon")
+  public String showUpdatePokemon() {
+    return "updatePokemon";
+  }
+
+  @PostMapping("/updatePokemon")
+  public String updatePokemon(@RequestParam("speed") int pokedex_number,
+                              @RequestParam("name") String name,
+                           @RequestParam("speed") int speed,
+                           @RequestParam("special_defence") int special_defence,
+                           @RequestParam("special_attack") int special_attack,
+                           @RequestParam("defence") int defence,
+                           @RequestParam("attack") int attack,
+                           @RequestParam("hp") int hp,
+                           @RequestParam("primary_type") String primary_type,
+                           @RequestParam("secondary_type") String secondary_type) {
+    PokemonRepository pokemonRepository = new PokemonRepository();
+    Pokemon newPokemon = new Pokemon();
+    newPokemon.setName(name);
+    newPokemon.setSpeed(speed);
+    newPokemon.setSpecial_defence(special_defence);
+    newPokemon.setSpecial_attack(special_attack);
+    newPokemon.setDefence(defence);
+    newPokemon.setAttack(attack);
+    newPokemon.setHp(hp);
+    newPokemon.setPrimary_type(primary_type);
+    newPokemon.setSecondary_type(secondary_type);
+    newPokemon.setPokedex_number(pokedex_number);
+
+    pokemonRepository.updatePokemon(newPokemon);
+    return "redirect:/findall";
+  }
 }

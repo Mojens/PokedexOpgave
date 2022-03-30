@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link src="src/main/resources/static/Style.css" th:href="@{Style.css}" rel="stylesheet" />
+    <title>Update pokemon</title>
+</head>
+<body>
+<form
+        action="/updatePokemon"
+        method="post">
+    <div class="container">
+        <label>Pokemon ID</label>
+        <input type="text" placeholder="Enter Pokemon ID to change" name="pokedex_number" >
+
+        <label>Pokemon Name</label>
+        <input type="text" placeholder="Enter Pokemon Name" name="name" >
+
+        <label>Pokemon Speed</label>
+        <input type="text" placeholder="Enter Pokemon Speed" name="speed" >
+
+        <label>Pokemon Special Defence</label>
+        <input type="text" placeholder="Enter Pokemon Special Defence" name="special_defence">
+
+        <label>Pokemon Special Attack</label>
+        <input type="text" placeholder="Enter Pokemon Special Attack" name="special_attack">
+
+        <label>Pokemon defence</label>
+        <input type="text" placeholder="Enter Pokemon defence" name="defence" >
+
+        <label>Pokemon attack</label>
+        <input type="text" placeholder="Enter Pokemon attack" name="attack" >
+
+        <label>Pokemon hp</label>
+        <input type="text" placeholder="Enter Pokemon hp" name="hp" >
+
+        <label>Pokemon Primary Type</label>
+        <input type="text" placeholder="Enter Pokemon Primary Type" name="primary_type">
+
+        <label>Pokemon Secondary Type</label>
+        <input type="text" placeholder="Enter Pokemon Secondary Type" name="secondary_type">
+
+        <button type="submit">Create Pokemon</button>
+        <button><a href="findall">Tilbage til oversigt</a></button>
+    </div>
+</form>
+
+</body>
+</html>
