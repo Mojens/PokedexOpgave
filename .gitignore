@@ -2,7 +2,6 @@
 .idea
 mvnw
 mvnw.cmd
-*.xml
 HELP.md
 src/test
 target/
