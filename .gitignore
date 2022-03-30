@@ -5,6 +5,7 @@ mvnw.cmd
 HELP.md
 src/test
 target/
+application.properties
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
